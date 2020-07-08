@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conduit</title>
+    <link
+      href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="//fonts.googleapis.com/css?family=Titillium+Web:700|Source+Serif+Pro:400,700|Merriweather+Sans:400,700|Source+Sans+Pro:400,300,600,700,300italic,400italic,600italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="//demo.productionready.io/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.min.js"></script>
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+    <script src="tags-popular.js"></script>
+    <script src="articles-feed.js"></script>
+    <script src="articles-list.js"></script>
+    <script src="articles-list-item.js"></script>
+    <script src="articles-preview.js"></script>
+    <script src="articles-meta.js"></script>
+    <script src="buttons-favorite.js"></script>
+    <script src="home-page-service.js"></script>
+    <script src="home-page.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <conduit-header></conduit-header>
+      <router-view></router-view>
+      <conduit-footer></conduit-footer>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
