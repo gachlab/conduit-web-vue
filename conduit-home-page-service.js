@@ -1,4 +1,4 @@
-const HomePageService = {
+const ConduitHomePageService = {
   fetchTags() {
     return fetch("https://conduit.productionready.io/api/tags")
       .then((response) => response.json())

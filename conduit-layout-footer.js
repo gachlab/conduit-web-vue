@@ -1,4 +1,4 @@
-Vue.component("conduit-footer", {
+Vue.component("conduit-layout-footer", {
   template: ` 
   <footer>
   <div class="container">

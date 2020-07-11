@@ -2,7 +2,7 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: HomePage,
+    component: ConduitHomePage,
   },
 ];
 

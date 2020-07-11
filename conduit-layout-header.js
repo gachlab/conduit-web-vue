@@ -1,4 +1,4 @@
-Vue.component("conduit-header", {
+Vue.component("conduit-layout-header", {
   template: ` 
      <nav class="navbar navbar-light">
         <div class="container">
