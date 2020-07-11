@@ -1,4 +1,4 @@
-const ConduitHomePage = {
+const ConduitPagesHome = {
   template: `
     <div class="home-page">
       <div class="banner">
@@ -55,8 +55,8 @@ const ConduitHomePage = {
     };
   },
   created() {
-    ConduitHomePageService.fetchTags().then((tags) => (this.tags = tags));
-    ConduitHomePageService.fetchArticles({
+    ConduitPagesHomeService.fetchTags().then((tags) => (this.tags = tags));
+    ConduitPagesHomeService.fetchArticles({
       limit: 10,
       offset: 0,
       feed: { id: "all", name: "Global Feed" },
@@ -70,7 +70,7 @@ const ConduitHomePage = {
       };
       this.feeds[2] = tagFeed;
       this.selectedFeed = tagFeed.id;
-      ConduitHomePageService.fetchArticles({
+      ConduitPagesHomeService.fetchArticles({
         limit: 10,
         offset: 0,
         feed: tagFeed,
@@ -78,7 +78,7 @@ const ConduitHomePage = {
     },
     onFeedSelected(selectedFeed) {
       this.selectedFeed = selectedFeed.id;
-      ConduitHomePageService.fetchArticles({
+      ConduitPagesHomeService.fetchArticles({
         limit: 10,
         offset: 0,
         feed: selectedFeed,

@@ -1,8 +1,8 @@
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: ConduitHomePage,
+    name: "conduit-pages-home",
+    component: ConduitPagesHome,
   },
 ];
 
