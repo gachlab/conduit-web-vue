@@ -16,12 +16,10 @@ const ConduitPagesHome = {
               v-on:select="onFeedSelected($event)"
             ></conduit-articles-feeds>
 
-            <conduit-articles-list v-bind:articles="articles">
-              <conduit-articles-list-item
+               <div
                 v-for="article in articles"
                 :key="article.slug"
-                v-bind:article="article"
-              >
+               >
                 <conduit-articles-preview v-bind:article="article">
                   <conduit-articles-meta v-bind:article="article">
                     <conduit-buttons-favorite
@@ -30,9 +28,8 @@ const ConduitPagesHome = {
                     ></conduit-buttons-favorite>
                   </conduit-articles-meta>
                 </conduit-articles-preview>
-              </conduit-articles-list-item>
-            </conduit-articles-list>
-          </div>
+              </div>
+           </div>
           <div class="col-md-3">
             <tags-popular
               v-bind:tags="tags"
