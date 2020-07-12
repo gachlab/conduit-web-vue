@@ -11,14 +11,9 @@ Vue.component("tags-popular", {
         class="tag-default tag-pill"
         v-for="tag in tags"
         :key="tag.id"
-        v-on:click="select(tag)"
+        v-on:click="onSelect(tag)"
       >{{ tag }}</a>
     </div>
   </div>`,
-  props: ["tags"],
-  methods: {
-    select(tag) {
-      this.$emit("select", tag);
-    },
-  },
+  props: ["tags", "onSelect"],
 });

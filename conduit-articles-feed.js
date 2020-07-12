@@ -6,16 +6,11 @@ Vue.component("conduit-articles-feeds", {
         <a
           class="nav-link"
           v-bind:class="{'active': feed.id===selected}"
-          v-on:click="select(feed)"
+          v-on:click="onSelect(feed)"
         >{{feed.name}}</a>
       </li>
     </ul>
   </div>
   `,
-  props: ["feeds", "selected"],
-  methods: {
-    select(feed) {
-      return this.$emit("select", feed);
-    },
-  },
+  props: ["feeds", "selected", "onSelect"],
 });
