@@ -11,13 +11,13 @@ const ConduitPagesHome = (function (dependencies) {
     <div class="row">
       <div class="col-md-9">
         <conduit-articles-feeds
-          v-bind:feeds="feeds"
-          v-bind:selected="selectedFeed"
+          v-bind:feeds="state.feeds"
+          v-bind:selected="state.selectedFeed"
           v-bind:onSelect="onFeedSelected"
         ></conduit-articles-feeds>
 
            <div
-            v-for="article in articles"
+            v-for="article in state.articles"
             :key="article.slug"
            >
             <conduit-articles-preview v-bind:article="article">
@@ -32,7 +32,7 @@ const ConduitPagesHome = (function (dependencies) {
        </div>
       <div class="col-md-3">
         <tags-popular
-          v-bind:tags="tags"
+          v-bind:tags="state.tags"
           v-bind:onSelect="onTagSelected"
         ></tags-popular>
       </div>
@@ -45,53 +45,37 @@ const ConduitPagesHome = (function (dependencies) {
     template: template,
     data() {
       return {
-        tags: undefined,
-        feeds: undefined,
-        selectedFeed: undefined,
-        articles: undefined,
+        state: {
+          tags: undefined,
+          feeds: undefined,
+          selectedFeed: undefined,
+          articles: undefined,
+        },
       };
     },
     created() {
-      dependencies.service.init().then((state) => this.setState(state));
+      dependencies.service
+        .init()
+        .then((state) => (this.state = Object.assign({}, state)));
     },
     methods: {
       onTagSelected(tag) {
         dependencies.service
-          .onTagSelected({ tag, state: this.getState() })
-          .then((state) => this.setState(state));
+          .onTagSelected({ tag, state: Object.assign({}, this.state) })
+          .then((state) => (this.state = Object.assign({}, state)));
       },
       onFeedSelected(feed) {
         dependencies.service
-          .onFeedSelected({ feed, state: this.getState() })
-          .then((state) => this.setState(state));
+          .onFeedSelected({ feed, state: Object.assign({}, this.state) })
+          .then((state) => (this.state = Object.assign({}, state)));
       },
       onPageSelected(page) {
         dependencies.service
-          .onPageSelected({ page, state: this.getState() })
-          .then((state) => this.setState(state));
+          .onPageSelected({ page, state: Object.assign({}, this.state) })
+          .then((state) => (this.state = Object.assign({}, state)));
       },
       onFavoritedArticle(article) {
         console.log(article);
-      },
-      getState() {
-        return JSON.parse(
-          JSON.stringify({
-            articles: this.articles,
-            pages: this.pages,
-            tags: this.tags,
-            feeds: this.feeds,
-            selectedFeed: this.selectedFeed,
-            selectedPage: this.selectedPage,
-          })
-        );
-      },
-      setState(input) {
-        this.articles = input.articles;
-        this.pages = input.pages;
-        this.tags = input.tags;
-        this.feeds = input.feeds;
-        this.selectedFeed = input.selectedFeed;
-        this.selectedPage = input.selectedPage;
       },
     },
   };
