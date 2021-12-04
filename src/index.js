@@ -11,6 +11,18 @@ import conduitLayoutFooter from './conduit-layout-footer';
 import conduitLayoutHeader from './conduit-layout-header';
 import ConduitPagesHome from './conduit-pages-home'
 
+conduitLayoutHeader({Vue})
+conduitLayoutFooter({Vue})
+conduitArticlesFeed()
+conduitTagsPopular()
+conduitArticlesList()
+conduitArticlesListItem()
+conduitArticlesPreview()
+conduitArticlesMeta()
+conduitButtonsFavorite()
+
+Vue.use(VueRouter)
+
 const routes = [
   {
     path: "/",
@@ -23,15 +35,7 @@ const router = new VueRouter({
   routes,
 });
 
-conduitLayoutHeader()
-conduitLayoutFooter()
-conduitArticlesFeed()
-conduitTagsPopular()
-conduitArticlesList()
-conduitArticlesListItem()
-conduitArticlesPreview()
-conduitArticlesMeta()
-conduitButtonsFavorite()
+
 
 new Vue({
   router,

@@ -1,5 +1,4 @@
-import Vue  from 'vue'
-import VueRouter  from 'vue-router'
+import Vue from 'vue/dist/vue.esm.browser'
+import VueRouter from 'vue-router/dist/vue-router.esm.browser'
 
-export const V = Vue
-export const VR = VueRouter
+export default { Vue, VueRouter }
